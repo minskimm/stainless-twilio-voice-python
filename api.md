@@ -90,13 +90,13 @@ Methods:
 Types:
 
 ```python
-from twilio_voice_openapi.types import DialingPermissions
+from twilio_voice_openapi.types import VoiceDialingPermissions
 ```
 
 Methods:
 
-- <code title="get /v1/Settings">client.settings.<a href="./src/twilio_voice_openapi/resources/settings.py">retrieve</a>() -> <a href="./src/twilio_voice_openapi/types/dialing_permissions.py">DialingPermissions</a></code>
-- <code title="post /v1/Settings">client.settings.<a href="./src/twilio_voice_openapi/resources/settings.py">update</a>(\*\*<a href="src/twilio_voice_openapi/types/setting_update_params.py">params</a>) -> <a href="./src/twilio_voice_openapi/types/dialing_permissions.py">DialingPermissions</a></code>
+- <code title="get /v1/Settings">client.settings.<a href="./src/twilio_voice_openapi/resources/settings.py">retrieve</a>() -> <a href="./src/twilio_voice_openapi/types/voice_dialing_permissions.py">VoiceDialingPermissions</a></code>
+- <code title="post /v1/Settings">client.settings.<a href="./src/twilio_voice_openapi/resources/settings.py">update</a>(\*\*<a href="src/twilio_voice_openapi/types/setting_update_params.py">params</a>) -> <a href="./src/twilio_voice_openapi/types/voice_dialing_permissions.py">VoiceDialingPermissions</a></code>
 
 # IPRecords
 
