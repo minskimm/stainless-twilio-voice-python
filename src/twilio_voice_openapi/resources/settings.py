@@ -19,7 +19,7 @@ from .._response import (
     async_to_streamed_response_wrapper,
 )
 from .._base_client import make_request_options
-from ..types.voice_dialing_permissions import VoiceDialingPermissions
+from ..types.dialing_permissions import DialingPermissions
 
 __all__ = ["SettingsResource", "AsyncSettingsResource"]
 
@@ -53,14 +53,14 @@ class SettingsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> VoiceDialingPermissions:
+    ) -> DialingPermissions:
         """Retrieve voice dialing permissions inheritance for the sub-account"""
         return self._get(
             "/v1/Settings",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=VoiceDialingPermissions,
+            cast_to=DialingPermissions,
         )
 
     def update(
@@ -73,7 +73,7 @@ class SettingsResource(SyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> VoiceDialingPermissions:
+    ) -> DialingPermissions:
         """
         Update voice dialing permissions inheritance for the sub-account
 
@@ -98,7 +98,7 @@ class SettingsResource(SyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=VoiceDialingPermissions,
+            cast_to=DialingPermissions,
         )
 
 
@@ -131,14 +131,14 @@ class AsyncSettingsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> VoiceDialingPermissions:
+    ) -> DialingPermissions:
         """Retrieve voice dialing permissions inheritance for the sub-account"""
         return await self._get(
             "/v1/Settings",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=VoiceDialingPermissions,
+            cast_to=DialingPermissions,
         )
 
     async def update(
@@ -151,7 +151,7 @@ class AsyncSettingsResource(AsyncAPIResource):
         extra_query: Query | None = None,
         extra_body: Body | None = None,
         timeout: float | httpx.Timeout | None | NotGiven = NOT_GIVEN,
-    ) -> VoiceDialingPermissions:
+    ) -> DialingPermissions:
         """
         Update voice dialing permissions inheritance for the sub-account
 
@@ -176,7 +176,7 @@ class AsyncSettingsResource(AsyncAPIResource):
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
-            cast_to=VoiceDialingPermissions,
+            cast_to=DialingPermissions,
         )
 
 
