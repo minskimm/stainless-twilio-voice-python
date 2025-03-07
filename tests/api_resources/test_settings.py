@@ -9,7 +9,7 @@ import pytest
 
 from tests.utils import assert_matches_type
 from twilio_voice_openapi import TwilioVoiceOpenAPI, AsyncTwilioVoiceOpenAPI
-from twilio_voice_openapi.types import VoiceDialingPermissions
+from twilio_voice_openapi.types import DialingPermissions
 
 base_url = os.environ.get("TEST_API_BASE_URL", "http://127.0.0.1:4010")
 
@@ -21,7 +21,7 @@ class TestSettings:
     @parametrize
     def test_method_retrieve(self, client: TwilioVoiceOpenAPI) -> None:
         setting = client.settings.retrieve()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -31,7 +31,7 @@ class TestSettings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         setting = response.parse()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -41,7 +41,7 @@ class TestSettings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             setting = response.parse()
-            assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+            assert_matches_type(DialingPermissions, setting, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -49,7 +49,7 @@ class TestSettings:
     @parametrize
     def test_method_update(self, client: TwilioVoiceOpenAPI) -> None:
         setting = client.settings.update()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -57,7 +57,7 @@ class TestSettings:
         setting = client.settings.update(
             dialing_permissions_inheritance=True,
         )
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -67,7 +67,7 @@ class TestSettings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         setting = response.parse()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -77,7 +77,7 @@ class TestSettings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             setting = response.parse()
-            assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+            assert_matches_type(DialingPermissions, setting, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -89,7 +89,7 @@ class TestAsyncSettings:
     @parametrize
     async def test_method_retrieve(self, async_client: AsyncTwilioVoiceOpenAPI) -> None:
         setting = await async_client.settings.retrieve()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -99,7 +99,7 @@ class TestAsyncSettings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         setting = await response.parse()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -109,7 +109,7 @@ class TestAsyncSettings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             setting = await response.parse()
-            assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+            assert_matches_type(DialingPermissions, setting, path=["response"])
 
         assert cast(Any, response.is_closed) is True
 
@@ -117,7 +117,7 @@ class TestAsyncSettings:
     @parametrize
     async def test_method_update(self, async_client: AsyncTwilioVoiceOpenAPI) -> None:
         setting = await async_client.settings.update()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -125,7 +125,7 @@ class TestAsyncSettings:
         setting = await async_client.settings.update(
             dialing_permissions_inheritance=True,
         )
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -135,7 +135,7 @@ class TestAsyncSettings:
         assert response.is_closed is True
         assert response.http_request.headers.get("X-Stainless-Lang") == "python"
         setting = await response.parse()
-        assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+        assert_matches_type(DialingPermissions, setting, path=["response"])
 
     @pytest.mark.skip()
     @parametrize
@@ -145,6 +145,6 @@ class TestAsyncSettings:
             assert response.http_request.headers.get("X-Stainless-Lang") == "python"
 
             setting = await response.parse()
-            assert_matches_type(VoiceDialingPermissions, setting, path=["response"])
+            assert_matches_type(DialingPermissions, setting, path=["response"])
 
         assert cast(Any, response.is_closed) is True
