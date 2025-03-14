@@ -4,10 +4,10 @@ from typing import Optional
 
 from .._models import BaseModel
 
-__all__ = ["DialingPermissions"]
+__all__ = ["VoiceDialingPermissions"]
 
 
-class DialingPermissions(BaseModel):
+class VoiceDialingPermissions(BaseModel):
     dialing_permissions_inheritance: Optional[bool] = None
     """
     `true` if the sub-account will inherit voice dialing permissions from the Master
