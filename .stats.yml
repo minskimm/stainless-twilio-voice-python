@@ -1,2 +1,4 @@
 configured_endpoints: 32
 openapi_spec_url: https://storage.googleapis.com/stainless-sdk-openapi-specs/msk%2Ftwilio-voice-openapi-ee9988f16732ad25ab2817a54f5ede5b2ecdfcb9bb6e78ca13da86069dec488d.yml
+openapi_spec_hash: 4b32d2d4b57563619a6762d50a365d34
+config_hash: 6fbed71773d86ba74341f4d661a8b657
