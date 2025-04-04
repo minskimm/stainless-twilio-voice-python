@@ -1816,7 +1816,7 @@ class TestAsyncTwilioVoiceOpenAPI:
         import threading
 
         from twilio_voice_openapi._utils import asyncify
-        from twilio_voice_openapi._base_client import get_platform 
+        from twilio_voice_openapi._base_client import get_platform
 
         async def test_main() -> None:
             result = await asyncify(get_platform)()
