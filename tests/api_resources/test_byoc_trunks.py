@@ -34,11 +34,11 @@ class TestByocTrunks:
             connection_policy_sid="NYaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             friendly_name="friendly_name",
             from_domain_sid="SDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            status_callback_method="GET",
+            status_callback_method="POST",
             status_callback_url="https://byoc.example.com/twilio/status_callback",
-            voice_fallback_method="GET",
+            voice_fallback_method="POST",
             voice_fallback_url="https://byoc.example.com/twilio/fallback",
-            voice_method="GET",
+            voice_method="POST",
             voice_url="https://byoc.example.com/twilio/app",
         )
         assert_matches_type(ByocTrunk, byoc_trunk, path=["response"])
@@ -265,11 +265,11 @@ class TestAsyncByocTrunks:
             connection_policy_sid="NYaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
             friendly_name="friendly_name",
             from_domain_sid="SDaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
-            status_callback_method="GET",
+            status_callback_method="POST",
             status_callback_url="https://byoc.example.com/twilio/status_callback",
-            voice_fallback_method="GET",
+            voice_fallback_method="POST",
             voice_fallback_url="https://byoc.example.com/twilio/fallback",
-            voice_method="GET",
+            voice_method="POST",
             voice_url="https://byoc.example.com/twilio/app",
         )
         assert_matches_type(ByocTrunk, byoc_trunk, path=["response"])
