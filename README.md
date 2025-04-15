@@ -28,8 +28,8 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
+from datetime import date
 from twilio_voice_openapi import TwilioVoiceOpenAPI
-from twilio_voice_openapi._utils import parse_date
 
 client = TwilioVoiceOpenAPI(
     username=os.environ.get(
@@ -42,7 +42,7 @@ client = TwilioVoiceOpenAPI(
 
 client.archives.delete_call(
     sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    date=date.fromisoformat("REPLACE_ME"),
 )
 ```
 
@@ -57,9 +57,9 @@ Simply import `AsyncTwilioVoiceOpenAPI` instead of `TwilioVoiceOpenAPI` and use 
 
 ```python
 import os
+from datetime import date
 import asyncio
 from twilio_voice_openapi import AsyncTwilioVoiceOpenAPI
-from twilio_voice_openapi._utils import parse_date
 
 client = AsyncTwilioVoiceOpenAPI(
     username=os.environ.get(
@@ -74,7 +74,7 @@ client = AsyncTwilioVoiceOpenAPI(
 async def main() -> None:
     await client.archives.delete_call(
         sid="REPLACE_ME",
-        date=parse_date("REPLACE_ME"),
+        date=date.fromisoformat("REPLACE_ME"),
     )
 
 
@@ -102,7 +102,7 @@ response), a subclass of `twilio_voice_openapi.APIStatusError` is raised, contai
 All errors inherit from `twilio_voice_openapi.APIError`.
 
 ```python
-from twilio_voice_openapi._utils import parse_date
+from datetime import date
 
 import twilio_voice_openapi
 from twilio_voice_openapi import TwilioVoiceOpenAPI
@@ -112,7 +112,7 @@ client = TwilioVoiceOpenAPI()
 try:
     client.archives.delete_call(
         sid="REPLACE_ME",
-        date=parse_date("REPLACE_ME"),
+        date=date.fromisoformat("REPLACE_ME"),
     )
 except twilio_voice_openapi.APIConnectionError as e:
     print("The server could not be reached")
@@ -147,7 +147,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from twilio_voice_openapi._utils import parse_date
+from datetime import date
 
 from twilio_voice_openapi import TwilioVoiceOpenAPI
 
@@ -160,7 +160,7 @@ client = TwilioVoiceOpenAPI(
 # Or, configure per-request:
 client.with_options(max_retries=5).archives.delete_call(
     sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    date=date.fromisoformat("REPLACE_ME"),
 )
 ```
 
@@ -170,7 +170,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from twilio_voice_openapi._utils import parse_date
+from datetime import date
 
 from twilio_voice_openapi import TwilioVoiceOpenAPI
 
@@ -188,7 +188,7 @@ client = TwilioVoiceOpenAPI(
 # Override per-request:
 client.with_options(timeout=5.0).archives.delete_call(
     sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    date=date.fromisoformat("REPLACE_ME"),
 )
 ```
 
@@ -232,7 +232,7 @@ from twilio_voice_openapi import TwilioVoiceOpenAPI
 client = TwilioVoiceOpenAPI()
 response = client.archives.with_raw_response.delete_call(
     sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    date=SDK_Symbol_0_date.fromisoformat("REPLACE_ME"),
 )
 print(response.headers.get('X-My-Header'))
 
@@ -253,7 +253,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 ```python
 with client.archives.with_streaming_response.delete_call(
     sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    date=SDK_Symbol_1_date.fromisoformat("REPLACE_ME"),
 ) as response:
     print(response.headers.get("X-My-Header"))
 
