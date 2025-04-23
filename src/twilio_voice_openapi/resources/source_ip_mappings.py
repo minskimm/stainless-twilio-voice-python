@@ -4,16 +4,9 @@ from __future__ import annotations
 
 import httpx
 
-from ..types import (
-    source_ip_mapping_list_params,
-    source_ip_mapping_create_params,
-    source_ip_mapping_update_params,
-)
+from ..types import source_ip_mapping_list_params, source_ip_mapping_create_params, source_ip_mapping_update_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
