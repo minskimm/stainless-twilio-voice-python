@@ -227,18 +227,22 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
+from datetime import date
+
 from twilio_voice_openapi import TwilioVoiceOpenAPI
 
 client = TwilioVoiceOpenAPI()
 response = client.archives.with_raw_response.delete_call(
     sid="REPLACE_ME",
-    date=SDK_Symbol_0_date.fromisoformat("REPLACE_ME"),
+    date=date.fromisoformat("REPLACE_ME"),
 )
 print(response.headers.get('X-My-Header'))
 
 archive = response.parse()  # get the object that `archives.delete_call()` would have returned
 print(archive)
 ```
+
+from datetime import date
 
 These methods return an [`APIResponse`](https://github.com/minskimm/stainless-twilio-voice-python/tree/main/src/twilio_voice_openapi/_response.py) object.
 
@@ -253,7 +257,7 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 ```python
 with client.archives.with_streaming_response.delete_call(
     sid="REPLACE_ME",
-    date=SDK_Symbol_1_date.fromisoformat("REPLACE_ME"),
+    date=date.fromisoformat("REPLACE_ME"),
 ) as response:
     print(response.headers.get("X-My-Header"))
 
