@@ -41,8 +41,8 @@ client = TwilioVoiceOpenAPI(
 )
 
 client.archives.delete_call(
-    sid="REPLACE_ME",
-    date=date.fromisoformat("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 ```
 
@@ -73,8 +73,8 @@ client = AsyncTwilioVoiceOpenAPI(
 
 async def main() -> None:
     await client.archives.delete_call(
-        sid="REPLACE_ME",
-        date=date.fromisoformat("REPLACE_ME"),
+        sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+        date=date.fromisoformat("2019-12-27"),
     )
 
 
@@ -111,8 +111,8 @@ client = TwilioVoiceOpenAPI()
 
 try:
     client.archives.delete_call(
-        sid="REPLACE_ME",
-        date=date.fromisoformat("REPLACE_ME"),
+        sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+        date=date.fromisoformat("2019-12-27"),
     )
 except twilio_voice_openapi.APIConnectionError as e:
     print("The server could not be reached")
@@ -159,8 +159,8 @@ client = TwilioVoiceOpenAPI(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).archives.delete_call(
-    sid="REPLACE_ME",
-    date=date.fromisoformat("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 ```
 
@@ -187,8 +187,8 @@ client = TwilioVoiceOpenAPI(
 
 # Override per-request:
 client.with_options(timeout=5.0).archives.delete_call(
-    sid="REPLACE_ME",
-    date=date.fromisoformat("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 ```
 
@@ -233,8 +233,8 @@ from twilio_voice_openapi import TwilioVoiceOpenAPI
 
 client = TwilioVoiceOpenAPI()
 response = client.archives.with_raw_response.delete_call(
-    sid="REPLACE_ME",
-    date=date.fromisoformat("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 print(response.headers.get('X-My-Header'))
 
@@ -256,8 +256,8 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.archives.with_streaming_response.delete_call(
-    sid="REPLACE_ME",
-    date=date.fromisoformat("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 ) as response:
     print(response.headers.get("X-My-Header"))
 
