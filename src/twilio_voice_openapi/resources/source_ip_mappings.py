@@ -70,7 +70,9 @@ class SourceIPMappingsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/SourceIpMappings",
+            "/v1/SourceIpMappings"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/SourceIpMappings",
             body=maybe_transform(
                 {
                     "ip_record_sid": ip_record_sid,
@@ -108,7 +110,9 @@ class SourceIPMappingsResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._get(
-            f"/v1/SourceIpMappings/{sid}",
+            f"/v1/SourceIpMappings/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/SourceIpMappings/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -142,7 +146,9 @@ class SourceIPMappingsResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._post(
-            f"/v1/SourceIpMappings/{sid}",
+            f"/v1/SourceIpMappings/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/SourceIpMappings/{sid}",
             body=maybe_transform(
                 {"sip_domain_sid": sip_domain_sid}, source_ip_mapping_update_params.SourceIPMappingUpdateParams
             ),
@@ -184,7 +190,9 @@ class SourceIPMappingsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/SourceIpMappings",
+            "/v1/SourceIpMappings"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/SourceIpMappings",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -227,7 +235,9 @@ class SourceIPMappingsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/SourceIpMappings/{sid}",
+            f"/v1/SourceIpMappings/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/SourceIpMappings/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -283,7 +293,9 @@ class AsyncSourceIPMappingsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/SourceIpMappings",
+            "/v1/SourceIpMappings"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/SourceIpMappings",
             body=await async_maybe_transform(
                 {
                     "ip_record_sid": ip_record_sid,
@@ -321,7 +333,9 @@ class AsyncSourceIPMappingsResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._get(
-            f"/v1/SourceIpMappings/{sid}",
+            f"/v1/SourceIpMappings/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/SourceIpMappings/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -355,7 +369,9 @@ class AsyncSourceIPMappingsResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._post(
-            f"/v1/SourceIpMappings/{sid}",
+            f"/v1/SourceIpMappings/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/SourceIpMappings/{sid}",
             body=await async_maybe_transform(
                 {"sip_domain_sid": sip_domain_sid}, source_ip_mapping_update_params.SourceIPMappingUpdateParams
             ),
@@ -397,7 +413,9 @@ class AsyncSourceIPMappingsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/SourceIpMappings",
+            "/v1/SourceIpMappings"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/SourceIpMappings",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -440,7 +458,9 @@ class AsyncSourceIPMappingsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/SourceIpMappings/{sid}",
+            f"/v1/SourceIpMappings/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/SourceIpMappings/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
