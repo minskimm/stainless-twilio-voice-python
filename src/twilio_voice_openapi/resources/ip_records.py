@@ -75,7 +75,7 @@ class IPRecordsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/IpRecords" if self._client._base_url_overridden else "https://voice.twilio.com/v1/IpRecords",
+            "/v1/IpRecords",
             body=maybe_transform(
                 {
                     "ip_address": ip_address,
@@ -114,9 +114,7 @@ class IPRecordsResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._get(
-            f"/v1/IpRecords/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/IpRecords/{sid}",
+            f"/v1/IpRecords/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -151,9 +149,7 @@ class IPRecordsResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._post(
-            f"/v1/IpRecords/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/IpRecords/{sid}",
+            f"/v1/IpRecords/{sid}",
             body=maybe_transform({"friendly_name": friendly_name}, ip_record_update_params.IPRecordUpdateParams),
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
@@ -193,7 +189,7 @@ class IPRecordsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/IpRecords" if self._client._base_url_overridden else "https://voice.twilio.com/v1/IpRecords",
+            "/v1/IpRecords",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -236,9 +232,7 @@ class IPRecordsResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/IpRecords/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/IpRecords/{sid}",
+            f"/v1/IpRecords/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -299,7 +293,7 @@ class AsyncIPRecordsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/IpRecords" if self._client._base_url_overridden else "https://voice.twilio.com/v1/IpRecords",
+            "/v1/IpRecords",
             body=await async_maybe_transform(
                 {
                     "ip_address": ip_address,
@@ -338,9 +332,7 @@ class AsyncIPRecordsResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._get(
-            f"/v1/IpRecords/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/IpRecords/{sid}",
+            f"/v1/IpRecords/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -375,9 +367,7 @@ class AsyncIPRecordsResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._post(
-            f"/v1/IpRecords/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/IpRecords/{sid}",
+            f"/v1/IpRecords/{sid}",
             body=await async_maybe_transform(
                 {"friendly_name": friendly_name}, ip_record_update_params.IPRecordUpdateParams
             ),
@@ -419,7 +409,7 @@ class AsyncIPRecordsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/IpRecords" if self._client._base_url_overridden else "https://voice.twilio.com/v1/IpRecords",
+            "/v1/IpRecords",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -462,9 +452,7 @@ class AsyncIPRecordsResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/IpRecords/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/IpRecords/{sid}",
+            f"/v1/IpRecords/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

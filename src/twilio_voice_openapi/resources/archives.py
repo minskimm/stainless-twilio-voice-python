@@ -73,9 +73,7 @@ class ArchivesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/Archives/{date}/Calls/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/Archives/{date}/Calls/{sid}",
+            f"/v1/Archives/{date}/Calls/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -135,9 +133,7 @@ class AsyncArchivesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/Archives/{date}/Calls/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/Archives/{date}/Calls/{sid}",
+            f"/v1/Archives/{date}/Calls/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

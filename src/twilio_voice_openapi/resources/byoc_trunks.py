@@ -109,7 +109,7 @@ class ByocTrunksResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
+            "/v1/ByocTrunks",
             body=maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -155,9 +155,7 @@ class ByocTrunksResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._get(
-            f"/v1/ByocTrunks/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -232,9 +230,7 @@ class ByocTrunksResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._post(
-            f"/v1/ByocTrunks/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}",
             body=maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -288,7 +284,7 @@ class ByocTrunksResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
+            "/v1/ByocTrunks",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -331,9 +327,7 @@ class ByocTrunksResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/ByocTrunks/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -426,7 +420,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
+            "/v1/ByocTrunks",
             body=await async_maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -472,9 +466,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._get(
-            f"/v1/ByocTrunks/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -549,9 +541,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._post(
-            f"/v1/ByocTrunks/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}",
             body=await async_maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -605,7 +595,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
+            "/v1/ByocTrunks",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -648,9 +638,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/ByocTrunks/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

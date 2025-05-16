@@ -108,7 +108,6 @@ class TwilioVoiceOpenAPI(SyncAPIClient):
 
         if base_url is None:
             base_url = os.environ.get("TWILIO_VOICE_OPENAPI_BASE_URL")
-        self._base_url_overridden = base_url is not None
         if base_url is None:
             base_url = f"https://voice.twilio.com"
 
@@ -304,7 +303,6 @@ class AsyncTwilioVoiceOpenAPI(AsyncAPIClient):
 
         if base_url is None:
             base_url = os.environ.get("TWILIO_VOICE_OPENAPI_BASE_URL")
-        self._base_url_overridden = base_url is not None
         if base_url is None:
             base_url = f"https://voice.twilio.com"
 
