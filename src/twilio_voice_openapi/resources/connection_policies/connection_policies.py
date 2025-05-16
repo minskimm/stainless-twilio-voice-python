@@ -79,9 +79,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/ConnectionPolicies"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies",
             body=maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_create_params.ConnectionPolicyCreateParams
             ),
@@ -115,9 +113,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._get(
-            f"/v1/ConnectionPolicies/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -152,9 +148,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._post(
-            f"/v1/ConnectionPolicies/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}",
             body=maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_update_params.ConnectionPolicyUpdateParams
             ),
@@ -196,9 +190,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/ConnectionPolicies"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -241,9 +233,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/ConnectionPolicies/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -300,9 +290,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/ConnectionPolicies"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies",
             body=await async_maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_create_params.ConnectionPolicyCreateParams
             ),
@@ -336,9 +324,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._get(
-            f"/v1/ConnectionPolicies/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -373,9 +359,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._post(
-            f"/v1/ConnectionPolicies/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}",
             body=await async_maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_update_params.ConnectionPolicyUpdateParams
             ),
@@ -417,9 +401,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/ConnectionPolicies"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -462,9 +444,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/ConnectionPolicies/{sid}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

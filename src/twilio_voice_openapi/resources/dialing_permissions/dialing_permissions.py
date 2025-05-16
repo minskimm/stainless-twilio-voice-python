@@ -85,9 +85,7 @@ class DialingPermissionsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/DialingPermissions/BulkCountryUpdates"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/DialingPermissions/BulkCountryUpdates",
+            "/v1/DialingPermissions/BulkCountryUpdates",
             body=maybe_transform(
                 {"update_request": update_request},
                 dialing_permission_create_bulk_country_updates_params.DialingPermissionCreateBulkCountryUpdatesParams,
@@ -153,9 +151,7 @@ class AsyncDialingPermissionsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/DialingPermissions/BulkCountryUpdates"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/DialingPermissions/BulkCountryUpdates",
+            "/v1/DialingPermissions/BulkCountryUpdates",
             body=await async_maybe_transform(
                 {"update_request": update_request},
                 dialing_permission_create_bulk_country_updates_params.DialingPermissionCreateBulkCountryUpdatesParams,

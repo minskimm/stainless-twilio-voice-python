@@ -72,9 +72,7 @@ class CountriesResource(SyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}",
+            f"/v1/DialingPermissions/Countries/{iso_code}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -138,9 +136,7 @@ class CountriesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/DialingPermissions/Countries"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/DialingPermissions/Countries",
+            "/v1/DialingPermissions/Countries",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -202,9 +198,7 @@ class CountriesResource(SyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
+            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -270,9 +264,7 @@ class AsyncCountriesResource(AsyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return await self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}",
+            f"/v1/DialingPermissions/Countries/{iso_code}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -336,9 +328,7 @@ class AsyncCountriesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/DialingPermissions/Countries"
-            if self._client._base_url_overridden
-            else "https://voice.twilio.com/v1/DialingPermissions/Countries",
+            "/v1/DialingPermissions/Countries",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -400,9 +390,7 @@ class AsyncCountriesResource(AsyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return await self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes"
-            if self._client._base_url_overridden
-            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
+            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
