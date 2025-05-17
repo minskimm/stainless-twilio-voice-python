@@ -20,10 +20,7 @@ from ._types import (
     ProxiesTypes,
     RequestOptions,
 )
-from ._utils import (
-    is_given,
-    get_async_library,
-)
+from ._utils import is_given, get_async_library
 from ._version import __version__
 from .resources import archives, settings, ip_records, byoc_trunks, source_ip_mappings
 from ._streaming import Stream as Stream, AsyncStream as AsyncStream
@@ -111,6 +108,7 @@ class TwilioVoiceOpenAPI(SyncAPIClient):
 
         if base_url is None:
             base_url = os.environ.get("TWILIO_VOICE_OPENAPI_BASE_URL")
+        self._base_url_overridden = base_url is not None
         if base_url is None:
             base_url = f"https://voice.twilio.com"
 
@@ -306,6 +304,7 @@ class AsyncTwilioVoiceOpenAPI(AsyncAPIClient):
 
         if base_url is None:
             base_url = os.environ.get("TWILIO_VOICE_OPENAPI_BASE_URL")
+        self._base_url_overridden = base_url is not None
         if base_url is None:
             base_url = f"https://voice.twilio.com"
 

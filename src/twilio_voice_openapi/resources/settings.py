@@ -6,10 +6,7 @@ import httpx
 
 from ..types import setting_update_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -31,7 +28,7 @@ class SettingsResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return SettingsResourceWithRawResponse(self)
 
@@ -40,7 +37,7 @@ class SettingsResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return SettingsResourceWithStreamingResponse(self)
 
@@ -56,7 +53,7 @@ class SettingsResource(SyncAPIResource):
     ) -> VoiceDialingPermissions:
         """Retrieve voice dialing permissions inheritance for the sub-account"""
         return self._get(
-            "/v1/Settings",
+            "/v1/Settings" if self._client._base_url_overridden else "https://voice.twilio.com/v1/Settings",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -90,7 +87,7 @@ class SettingsResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/Settings",
+            "/v1/Settings" if self._client._base_url_overridden else "https://voice.twilio.com/v1/Settings",
             body=maybe_transform(
                 {"dialing_permissions_inheritance": dialing_permissions_inheritance},
                 setting_update_params.SettingUpdateParams,
@@ -109,7 +106,7 @@ class AsyncSettingsResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return AsyncSettingsResourceWithRawResponse(self)
 
@@ -118,7 +115,7 @@ class AsyncSettingsResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return AsyncSettingsResourceWithStreamingResponse(self)
 
@@ -134,7 +131,7 @@ class AsyncSettingsResource(AsyncAPIResource):
     ) -> VoiceDialingPermissions:
         """Retrieve voice dialing permissions inheritance for the sub-account"""
         return await self._get(
-            "/v1/Settings",
+            "/v1/Settings" if self._client._base_url_overridden else "https://voice.twilio.com/v1/Settings",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -168,7 +165,7 @@ class AsyncSettingsResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/Settings",
+            "/v1/Settings" if self._client._base_url_overridden else "https://voice.twilio.com/v1/Settings",
             body=await async_maybe_transform(
                 {"dialing_permissions_inheritance": dialing_permissions_inheritance},
                 setting_update_params.SettingUpdateParams,

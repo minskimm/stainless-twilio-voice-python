@@ -8,10 +8,7 @@ import httpx
 
 from ..types import byoc_trunk_list_params, byoc_trunk_create_params, byoc_trunk_update_params
 from .._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
-from .._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from .._utils import maybe_transform, async_maybe_transform
 from .._compat import cached_property
 from .._resource import SyncAPIResource, AsyncAPIResource
 from .._response import (
@@ -34,7 +31,7 @@ class ByocTrunksResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return ByocTrunksResourceWithRawResponse(self)
 
@@ -43,7 +40,7 @@ class ByocTrunksResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return ByocTrunksResourceWithStreamingResponse(self)
 
@@ -112,7 +109,7 @@ class ByocTrunksResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/ByocTrunks",
+            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
             body=maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -158,7 +155,9 @@ class ByocTrunksResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._get(
-            f"/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -233,7 +232,9 @@ class ByocTrunksResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._post(
-            f"/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
             body=maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -287,7 +288,7 @@ class ByocTrunksResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/ByocTrunks",
+            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -330,7 +331,9 @@ class ByocTrunksResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -345,7 +348,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return AsyncByocTrunksResourceWithRawResponse(self)
 
@@ -354,7 +357,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return AsyncByocTrunksResourceWithStreamingResponse(self)
 
@@ -423,7 +426,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/ByocTrunks",
+            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
             body=await async_maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -469,7 +472,9 @@ class AsyncByocTrunksResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._get(
-            f"/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -544,7 +549,9 @@ class AsyncByocTrunksResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._post(
-            f"/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
             body=await async_maybe_transform(
                 {
                     "cnam_lookup_enabled": cnam_lookup_enabled,
@@ -598,7 +605,7 @@ class AsyncByocTrunksResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/ByocTrunks",
+            "/v1/ByocTrunks" if self._client._base_url_overridden else "https://voice.twilio.com/v1/ByocTrunks",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -641,7 +648,9 @@ class AsyncByocTrunksResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/ByocTrunks/{sid}",
+            f"/v1/ByocTrunks/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ByocTrunks/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),

@@ -5,10 +5,7 @@ from __future__ import annotations
 import httpx
 
 from ..._types import NOT_GIVEN, Body, Query, Headers, NotGiven
-from ..._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -35,7 +32,7 @@ class CountriesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return CountriesResourceWithRawResponse(self)
 
@@ -44,7 +41,7 @@ class CountriesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return CountriesResourceWithStreamingResponse(self)
 
@@ -75,7 +72,9 @@ class CountriesResource(SyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}",
+            f"/v1/DialingPermissions/Countries/{iso_code}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -139,7 +138,9 @@ class CountriesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/DialingPermissions/Countries",
+            "/v1/DialingPermissions/Countries"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/DialingPermissions/Countries",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -201,7 +202,9 @@ class CountriesResource(SyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
+            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -227,7 +230,7 @@ class AsyncCountriesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return AsyncCountriesResourceWithRawResponse(self)
 
@@ -236,7 +239,7 @@ class AsyncCountriesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return AsyncCountriesResourceWithStreamingResponse(self)
 
@@ -267,7 +270,9 @@ class AsyncCountriesResource(AsyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return await self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}",
+            f"/v1/DialingPermissions/Countries/{iso_code}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -331,7 +336,9 @@ class AsyncCountriesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/DialingPermissions/Countries",
+            "/v1/DialingPermissions/Countries"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/DialingPermissions/Countries",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -393,7 +400,9 @@ class AsyncCountriesResource(AsyncAPIResource):
         if not iso_code:
             raise ValueError(f"Expected a non-empty value for `iso_code` but received {iso_code!r}")
         return await self._get(
-            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
+            f"/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/DialingPermissions/Countries/{iso_code}/HighRiskSpecialPrefixes",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,

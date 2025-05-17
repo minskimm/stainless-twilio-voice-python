@@ -15,8 +15,8 @@ The REST API documentation can be found on [support.twilio.com](https://support.
 ## Installation
 
 ```sh
-# install from this staging repo
-pip install git+ssh://git@github.com/stainless-sdks/twilio-voice-openapi-python.git
+# install from the production repo
+pip install git+ssh://git@github.com/minskimm/stainless-twilio-voice-python.git
 ```
 
 > [!NOTE]
@@ -28,8 +28,8 @@ The full API of this library can be found in [api.md](api.md).
 
 ```python
 import os
+from datetime import date
 from twilio_voice_openapi import TwilioVoiceOpenAPI
-from twilio_voice_openapi._utils import parse_date
 
 client = TwilioVoiceOpenAPI(
     username=os.environ.get(
@@ -41,8 +41,8 @@ client = TwilioVoiceOpenAPI(
 )
 
 client.archives.delete_call(
-    sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 ```
 
@@ -57,9 +57,9 @@ Simply import `AsyncTwilioVoiceOpenAPI` instead of `TwilioVoiceOpenAPI` and use 
 
 ```python
 import os
+from datetime import date
 import asyncio
 from twilio_voice_openapi import AsyncTwilioVoiceOpenAPI
-from twilio_voice_openapi._utils import parse_date
 
 client = AsyncTwilioVoiceOpenAPI(
     username=os.environ.get(
@@ -73,8 +73,8 @@ client = AsyncTwilioVoiceOpenAPI(
 
 async def main() -> None:
     await client.archives.delete_call(
-        sid="REPLACE_ME",
-        date=parse_date("REPLACE_ME"),
+        sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+        date=date.fromisoformat("2019-12-27"),
     )
 
 
@@ -102,7 +102,7 @@ response), a subclass of `twilio_voice_openapi.APIStatusError` is raised, contai
 All errors inherit from `twilio_voice_openapi.APIError`.
 
 ```python
-from twilio_voice_openapi._utils import parse_date
+from datetime import date
 
 import twilio_voice_openapi
 from twilio_voice_openapi import TwilioVoiceOpenAPI
@@ -111,8 +111,8 @@ client = TwilioVoiceOpenAPI()
 
 try:
     client.archives.delete_call(
-        sid="REPLACE_ME",
-        date=parse_date("REPLACE_ME"),
+        sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+        date=date.fromisoformat("2019-12-27"),
     )
 except twilio_voice_openapi.APIConnectionError as e:
     print("The server could not be reached")
@@ -147,7 +147,7 @@ Connection errors (for example, due to a network connectivity problem), 408 Requ
 You can use the `max_retries` option to configure or disable retry settings:
 
 ```python
-from twilio_voice_openapi._utils import parse_date
+from datetime import date
 
 from twilio_voice_openapi import TwilioVoiceOpenAPI
 
@@ -159,8 +159,8 @@ client = TwilioVoiceOpenAPI(
 
 # Or, configure per-request:
 client.with_options(max_retries=5).archives.delete_call(
-    sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 ```
 
@@ -170,7 +170,7 @@ By default requests time out after 1 minute. You can configure this with a `time
 which accepts a float or an [`httpx.Timeout`](https://www.python-httpx.org/advanced/#fine-tuning-the-configuration) object:
 
 ```python
-from twilio_voice_openapi._utils import parse_date
+from datetime import date
 
 from twilio_voice_openapi import TwilioVoiceOpenAPI
 
@@ -187,8 +187,8 @@ client = TwilioVoiceOpenAPI(
 
 # Override per-request:
 client.with_options(timeout=5.0).archives.delete_call(
-    sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 ```
 
@@ -227,12 +227,14 @@ if response.my_field is None:
 The "raw" Response object can be accessed by prefixing `.with_raw_response.` to any HTTP method call, e.g.,
 
 ```py
+from datetime import date
+
 from twilio_voice_openapi import TwilioVoiceOpenAPI
 
 client = TwilioVoiceOpenAPI()
 response = client.archives.with_raw_response.delete_call(
-    sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 )
 print(response.headers.get('X-My-Header'))
 
@@ -240,9 +242,11 @@ archive = response.parse()  # get the object that `archives.delete_call()` would
 print(archive)
 ```
 
-These methods return an [`APIResponse`](https://github.com/stainless-sdks/twilio-voice-openapi-python/tree/main/src/twilio_voice_openapi/_response.py) object.
+from datetime import date
 
-The async client returns an [`AsyncAPIResponse`](https://github.com/stainless-sdks/twilio-voice-openapi-python/tree/main/src/twilio_voice_openapi/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
+These methods return an [`APIResponse`](https://github.com/minskimm/stainless-twilio-voice-python/tree/main/src/twilio_voice_openapi/_response.py) object.
+
+The async client returns an [`AsyncAPIResponse`](https://github.com/minskimm/stainless-twilio-voice-python/tree/main/src/twilio_voice_openapi/_response.py) with the same structure, the only difference being `await`able methods for reading the response content.
 
 #### `.with_streaming_response`
 
@@ -252,8 +256,8 @@ To stream the response body, use `.with_streaming_response` instead, which requi
 
 ```python
 with client.archives.with_streaming_response.delete_call(
-    sid="REPLACE_ME",
-    date=parse_date("REPLACE_ME"),
+    sid="CAE1CB97d8EBbDbaAae6d9B1ca0D1cFaAD",
+    date=date.fromisoformat("2019-12-27"),
 ) as response:
     print(response.headers.get("X-My-Header"))
 
@@ -349,7 +353,7 @@ This package generally follows [SemVer](https://semver.org/spec/v2.0.0.html) con
 
 We take backwards-compatibility seriously and work hard to ensure you can rely on a smooth upgrade experience.
 
-We are keen for your feedback; please open an [issue](https://www.github.com/stainless-sdks/twilio-voice-openapi-python/issues) with questions, bugs, or suggestions.
+We are keen for your feedback; please open an [issue](https://www.github.com/minskimm/stainless-twilio-voice-python/issues) with questions, bugs, or suggestions.
 
 ### Determining the installed version
 

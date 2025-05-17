@@ -4,11 +4,7 @@ from __future__ import annotations
 
 import httpx
 
-from ...types import (
-    connection_policy_list_params,
-    connection_policy_create_params,
-    connection_policy_update_params,
-)
+from ...types import connection_policy_list_params, connection_policy_create_params, connection_policy_update_params
 from .targets import (
     TargetsResource,
     AsyncTargetsResource,
@@ -18,10 +14,7 @@ from .targets import (
     AsyncTargetsResourceWithStreamingResponse,
 )
 from ..._types import NOT_GIVEN, Body, Query, Headers, NoneType, NotGiven
-from ..._utils import (
-    maybe_transform,
-    async_maybe_transform,
-)
+from ..._utils import maybe_transform, async_maybe_transform
 from ..._compat import cached_property
 from ..._resource import SyncAPIResource, AsyncAPIResource
 from ..._response import (
@@ -48,7 +41,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return ConnectionPoliciesResourceWithRawResponse(self)
 
@@ -57,7 +50,7 @@ class ConnectionPoliciesResource(SyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return ConnectionPoliciesResourceWithStreamingResponse(self)
 
@@ -86,7 +79,9 @@ class ConnectionPoliciesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._post(
-            "/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/ConnectionPolicies",
             body=maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_create_params.ConnectionPolicyCreateParams
             ),
@@ -120,7 +115,9 @@ class ConnectionPoliciesResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._get(
-            f"/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -155,7 +152,9 @@ class ConnectionPoliciesResource(SyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return self._post(
-            f"/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
             body=maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_update_params.ConnectionPolicyUpdateParams
             ),
@@ -197,7 +196,9 @@ class ConnectionPoliciesResource(SyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return self._get(
-            "/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/ConnectionPolicies",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -240,7 +241,9 @@ class ConnectionPoliciesResource(SyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return self._delete(
-            f"/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -259,7 +262,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
         This property can be used as a prefix for any HTTP method call to return
         the raw response object instead of the parsed content.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#accessing-raw-response-data-eg-headers
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#accessing-raw-response-data-eg-headers
         """
         return AsyncConnectionPoliciesResourceWithRawResponse(self)
 
@@ -268,7 +271,7 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
         """
         An alternative to `.with_raw_response` that doesn't eagerly read the response body.
 
-        For more information, see https://www.github.com/stainless-sdks/twilio-voice-openapi-python#with_streaming_response
+        For more information, see https://www.github.com/minskimm/stainless-twilio-voice-python#with_streaming_response
         """
         return AsyncConnectionPoliciesResourceWithStreamingResponse(self)
 
@@ -297,7 +300,9 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._post(
-            "/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/ConnectionPolicies",
             body=await async_maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_create_params.ConnectionPolicyCreateParams
             ),
@@ -331,7 +336,9 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._get(
-            f"/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
@@ -366,7 +373,9 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
         if not sid:
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         return await self._post(
-            f"/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
             body=await async_maybe_transform(
                 {"friendly_name": friendly_name}, connection_policy_update_params.ConnectionPolicyUpdateParams
             ),
@@ -408,7 +417,9 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
           timeout: Override the client-level default timeout for this request, in seconds
         """
         return await self._get(
-            "/v1/ConnectionPolicies",
+            "/v1/ConnectionPolicies"
+            if self._client._base_url_overridden
+            else "https://voice.twilio.com/v1/ConnectionPolicies",
             options=make_request_options(
                 extra_headers=extra_headers,
                 extra_query=extra_query,
@@ -451,7 +462,9 @@ class AsyncConnectionPoliciesResource(AsyncAPIResource):
             raise ValueError(f"Expected a non-empty value for `sid` but received {sid!r}")
         extra_headers = {"Accept": "*/*", **(extra_headers or {})}
         return await self._delete(
-            f"/v1/ConnectionPolicies/{sid}",
+            f"/v1/ConnectionPolicies/{sid}"
+            if self._client._base_url_overridden
+            else f"https://voice.twilio.com/v1/ConnectionPolicies/{sid}",
             options=make_request_options(
                 extra_headers=extra_headers, extra_query=extra_query, extra_body=extra_body, timeout=timeout
             ),
